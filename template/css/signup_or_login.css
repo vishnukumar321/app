@@ -3,14 +3,19 @@
     height: 90vh;
     display: flex;
     align-items: center;
+
     justify-content: center;
 }
 form{
     padding: 20px;
-    border: 2px solid aqua;
+    border: 2px solid white;
     border-radius: 20px;
     font-size: medium;
-    transition: 3s;
+    transition: 0.4s;
+
+}
+form:hover{
+    border-color: aqua;
 }
 input{
     background-color: black;
