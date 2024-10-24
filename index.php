@@ -129,6 +129,12 @@ get_file('__header');
             
         </div>
     </div><?php
+    if(isset($_SESSION['signup'])){
+        ?><script>alert('signup success,please login...')</script><?php
+    }
+    if(isset($_SESSION['username'])){
+        ?><script>alert('login success,welcome <?= $_SESSION['username']?>')</script><?php
+    }
     get_file('__footer');
     ?>
 </body>

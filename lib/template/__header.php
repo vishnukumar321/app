@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="template/css/index.css">
+<link rel="stylesheet" href="lib/template/css/index.css">
 <body id="body">
     <div class="header">
         <div class="icon">

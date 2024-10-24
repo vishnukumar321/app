@@ -1,16 +1,26 @@
 <?php 
 include_once "lib/load.php";
 $active=false;
+$show=false;
 if(isset($_POST['name']) and isset($_POST['email']) and isset($_POST['phone']) and isset($_POST['pass'])){
     $name=$_POST['name'];
     $email=$_POST['email'];
     $phone=$_POST['phone'];
     $pass=$_POST['pass'];
-    $signup=
+    $signup=user::signup($name,$email,$phone,$pass);
+    
     $active=true;
 }
+if($active){
+    if($signup){
+        $_SESSION['signup']=true;
+        header('location:index.php');
+    }else{
+        $show=true;
+    }
+}
 ?>
-<link rel="stylesheet" href="template/css/signup_or_login.css">
+<link rel="stylesheet" href="lib/template/css/signup_or_login.css">
 <div class="signup">
 <div class="form">
     <form action="signup.php" method="post">
@@ -37,6 +47,13 @@ if(isset($_POST['name']) and isset($_POST['email']) and isset($_POST['phone']) a
                 <td><input type="password" name="pass" required></td>
                 
             </tr>
+            <?php
+            if($show){
+                ?><tr>
+                <td colspan="2"><br><h3 style="color: red;text-align:center" >Username or password is already used</h3></td>
+            </tr><?php
+            }
+            ?>
             <tr>
                 <td colspan="2" style="text-align: center;padding:10px;" ><button class="b" style="" >submit</button></td>
             </tr>
